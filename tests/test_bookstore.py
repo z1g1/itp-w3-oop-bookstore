@@ -73,6 +73,15 @@ class BookstoreTestCase(unittest.TestCase):
         results = store.search_books(author=self.poe)
         self.assertEqual(results, [self.raven])
 
+    def test_search_bookstore_by_both_author_and_title(self):
+        store = Bookstore("Rmotr's bookstore")
+        store.add_book(self.ficciones)
+        store.add_book(self.aleph)
+        store.add_book(self.raven)
+
+        results = store.search_books(title='ficc', author=self.borges)
+        self.assertEqual(results, [self.ficciones])
+
 
 class AuthorTestCase(unittest.TestCase):
     def test_author_creation(self):
