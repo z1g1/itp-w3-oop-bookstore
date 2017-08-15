@@ -14,10 +14,9 @@ class Bookstore(object):
 		if (title == None) and author:
 			# search by Author
 			pass
-			print("searching by author")
-			print(author.name)
 			for book in self.books:
-				print(book.author.name)
+				if author.name == book.author.name:
+					answer.append(book)
 		elif title and (author == None):
 			# Search by title 
 			for book in self.books:
