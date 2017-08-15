@@ -27,13 +27,17 @@ class Author(object):
 	def __init__ (self, name, nationality): 
 		self.name = name
 		self.nationality = nationality
+		self.books = []
+
+	def add_book(self, book):
+		self.books.append(book)
 
 	def get_books(self):
-		authors_books = [self.name]
+		return self.books
 
-		return authors_books
 class Book(object):
 	
 	def __init__ (self, title, author):
 		self.title = title
 		self.author = author
+		self.author.add_book(self)		
